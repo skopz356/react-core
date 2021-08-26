@@ -42,13 +42,17 @@ export default function AppButton({onPress, onLongPress, title, children, margin
 }
 
 AppButton.propTypes = {
+	bgColor: PropTypes.string,
 	children: PropTypes.node,
+	color: PropTypes.string,
+	fontSize: PropTypes.number,
 	marginX: PropTypes.string,
 	marginY: PropTypes.string,
 	onLongPress: PropTypes.func,
 	onPress: PropTypes.func,
+	padding: PropTypes.string,
 	secondary: PropTypes.bool,
 	title: PropTypes.string,
 	width: PropTypes.string,
-
+	withStyles: PropTypes.bool,
 }

@@ -1,15 +1,8 @@
 import {useTheme} from 'styled-components/native'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components/native'
 
 import {TextInput} from 'react-native'
-
-const AppInputText = styled.TextInput`
-  color: ${props => props.theme.textColor};
-  text-align: center;
-`
-
 
 const AppInput = React.forwardRef((props, ref) => {
 	const theme = useTheme()

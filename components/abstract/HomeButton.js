@@ -2,6 +2,7 @@ import * as Analytics from 'expo-firebase-analytics'
 import {useNavigation, useRoute} from '@react-navigation/native'
 import { useTranslation } from 'react-i18next'
 import AppButton from './AppButton'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export default function HomeButton({padding}) {
@@ -11,10 +12,12 @@ export default function HomeButton({padding}) {
 
 	const handleButtonPress = () => {
 		navigation.navigate('Home')
-		Analytics.logEvent('BackLinkClick', {
-			purpose: 'User clicked on back button',
-			screen: route.name
-		})
+		if(global.analytics) {
+			Analytics.logEvent('BackLinkClick', {
+				purpose: 'User clicked on back button',
+				screen: route.name
+			})
+		}
 	}
 
 	return (
@@ -25,4 +28,8 @@ export default function HomeButton({padding}) {
 			title={t('Zpět')}
 			onPress={() => handleButtonPress()}/>
 	)
+}
+
+HomeButton.propTypes = {
+	padding: PropTypes.string,
 }

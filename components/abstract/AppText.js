@@ -1,8 +1,11 @@
 // https://dev.to/jasurkurbanovinit/how-to-create-custom-fully-responsive-text-component-in-react-native-51d8
-import {adjustFont} from '../../utils'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/native'
+
+function adjustFont(val) {
+	return val
+}
 
 const AppTextContainer = styled.Text`
   text-align: ${props => props.align? props.align: 'center'};
@@ -29,7 +32,7 @@ export default function AppText({
 			italic && {fontStyle: 'italic'},
 			uppercase && {textTransform: 'uppercase'},
 			lineHeight && {lineHeight: lineHeight},
-			{fontFamily: 'Itim'}
+			/* {fontFamily: 'Itim'} todo: font support*/
 		]} marginX={marginX} marginY={marginY} color={color} align={align}>{children}</AppTextContainer>
 	)
 }

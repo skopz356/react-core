@@ -1,4 +1,5 @@
 import {useTheme} from 'styled-components/native'
+import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/native'
 
@@ -17,4 +18,8 @@ export function BackgroundScreen({children}) {
 			{children}
 		</_BackgroundScreen>
 	)
+}
+
+BackgroundScreen.propTypes = {
+	children: PropTypes.node
 }
