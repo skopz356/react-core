@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "babel-plugin-root-import": "^6.6.0",
     "prop-types": "^15.7.2"
   },
   "private": true
