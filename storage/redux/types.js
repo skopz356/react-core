@@ -1,0 +1,2 @@
+export const SET_SHOW_WELCOME_SCREEN = 'SET_SHOW_WELCOME_SCREEN'
+export const SET_THEME = 'SET_THEME'
