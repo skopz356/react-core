@@ -1,6 +1,6 @@
 import {SET_SHOW_WELCOME_SCREEN, SET_THEME} from './types'
 import { combineReducers } from 'redux'
-import appReducer from '~/storage/reducers'
+import appReducer from '~/storage/redux/reducers'
 
 const initialState = {
 	showWelcomeScreen: true,
