@@ -1,11 +1,14 @@
+import { createMigrate, persistReducer, persistStore } from 'redux-persist'
 import {createStore} from 'redux'
-import { persistReducer, persistStore } from 'redux-persist'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import migrations from '~/migrations'
 import reducer from './reducers'
 
 const persistConfig = {
-	key: 'root',
-	storage: AsyncStorage
+	key: global.config.appName,
+	migrate: createMigrate(migrations, {debug: global.config.debug}),
+	storage: AsyncStorage,
+	version: global.config.reduxVersion
 }
 
 const persistedReducer = persistReducer(persistConfig, reducer)
