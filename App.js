@@ -1,10 +1,9 @@
 import './i18n'
-import 'react-native-gesture-handler'
 import {NavigationContainer} from '@react-navigation/native'
 import {PersistGate} from 'redux-persist/integration/react'
 import {Provider} from 'react-redux'
 import {StatusBar} from 'expo-status-bar'
-import {createStackNavigator} from '@react-navigation/stack'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import {screens} from '~/components/screens/index'
 import AppLoadingScreen from './components/abstract/AppLoadingScreen'
 import PropTypes from 'prop-types'
@@ -15,7 +14,7 @@ import configureStore from './storage/redux/store'
 
 let {store, persistor} = configureStore()
 
-const Stack = createStackNavigator()
+const Stack = createNativeStackNavigator()
 
 export default function App({children}) {
 	const [showWelcomeScreen, setShowWelcomeScreen] = useState(true)
@@ -32,11 +31,10 @@ export default function App({children}) {
 					<NavigationContainer>
 						<Stack.Navigator headerMode={null}>
 							{showWelcomeScreen &&
-                                <Stack.Screen name={WelcomeScreen._name} component={WelcomeScreen}/>
+							<Stack.Screen name={WelcomeScreen._name} component={WelcomeScreen}/>
 							}
 							{screens.map(screen => {
-								return <Stack.Screen name={screen._name} component={screen} key={screen._name}
-									options={screen.options}/>
+								return <Stack.Screen name={screen._name} component={screen} key={screen._name} options={screen.options}/>
 							})}
 						</Stack.Navigator>
 					</NavigationContainer>
