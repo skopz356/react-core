@@ -32,4 +32,4 @@ function coreReducer(state = initialState, action) {
 	}
 }
 
-export default combineReducers({appReducer, coreReducer})
+export default combineReducers({app: appReducer, core: coreReducer})

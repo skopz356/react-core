@@ -19,18 +19,18 @@ const Stack = createNativeStackNavigator()
 export default function App({children}) {
 	const [showWelcomeScreen, setShowWelcomeScreen] = useState(true)
 	const beforeLift = () => {
-		if (store.getState().showWelcomeScreen) {
+		if (store.getState().core.showWelcomeScreen) {
 			setShowWelcomeScreen(false)
 		}
 	}
 
 	return (
 		<Provider store={store}>
-			<PersistGate loading={<AppLoadingScreen/>} persistor={persistor} onBeforeLift={global.welcomeScreenLogic? beforeLift: () => {}}>
+			<PersistGate loading={<AppLoadingScreen/>} persistor={persistor} onBeforeLift={global.config.welcomeScreenLogic? beforeLift: () => {}}>
 				<ThemeProvider>
 					<NavigationContainer>
 						<Stack.Navigator headerMode={null}>
-							{showWelcomeScreen &&
+							{!showWelcomeScreen &&
 							<Stack.Screen name={WelcomeScreen._name} component={WelcomeScreen}/>
 							}
 							{screens.map(screen => {
