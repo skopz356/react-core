@@ -11,6 +11,7 @@ import React, {useState} from 'react'
 import ThemeProvider from './components/abstract/ThemeProvider'
 import WelcomeScreen from '~/components/screens/WelcomeScreen'
 import configureStore from './storage/redux/store'
+import { useFonts } from 'expo-font'
 
 let {store, persistor} = configureStore()
 
@@ -18,6 +19,14 @@ const Stack = createNativeStackNavigator()
 
 export default function App({children}) {
 	const [showWelcomeScreen, setShowWelcomeScreen] = useState(true)
+
+	if (global.config.fonts){
+		let [fontsLoaded] = useFonts(global.config.fonts)
+		if (!fontsLoaded) {
+			return <AppLoadingScreen/>
+		}
+	}
+
 	const beforeLift = () => {
 		if (store.getState().core.showWelcomeScreen) {
 			setShowWelcomeScreen(false)

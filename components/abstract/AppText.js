@@ -16,7 +16,7 @@ const AppTextContainer = styled.Text`
 
 export default function AppText({
 	h0, h1, h2, h3, h4, h5, p, bold,
-	italic, children, uppercase, align, marginX, marginY, color, fontSize, lineHeight
+	italic, children, uppercase, align, marginX, marginY, color, fontSize, fontFamily, lineHeight
 }) {
 	return (
 		<AppTextContainer style={[
@@ -32,6 +32,7 @@ export default function AppText({
 			italic && {fontStyle: 'italic'},
 			uppercase && {textTransform: 'uppercase'},
 			lineHeight && {lineHeight: lineHeight},
+			{fontFamily: fontFamily? fontFamily: global.config.mainFont}
 			/* {fontFamily: 'Itim'} todo: font support*/
 		]} marginX={marginX} marginY={marginY} color={color} align={align}>{children}</AppTextContainer>
 	)
