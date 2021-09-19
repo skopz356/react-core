@@ -1,11 +1,12 @@
 import {ThemeProvider as _ThemeProvider} from 'styled-components/native'
 import {connect} from 'react-redux'
-import {darkTheme, lightTheme} from '../abstract/theme'
+import {darkTheme, lightTheme} from './theme'
 import PropTypes from 'prop-types'
 import React from 'react'
+import {useOrientation} from '~/core/utils'
 
 function ThemeProvider({theme, children}) {
-	const orientation = 'test'
+	const orientation = useOrientation()
 	return (
 		<_ThemeProvider theme={theme === 'light' ? {'orientation': orientation, ...lightTheme}: {'orientation': orientation, ...darkTheme}}>
 			{children}
@@ -20,7 +21,7 @@ ThemeProvider.propTypes = {
 
 const mapStateToProps = (state) => {
 	return {
-		theme: state.theme
+		theme: state.core.theme
 	}
 }
 

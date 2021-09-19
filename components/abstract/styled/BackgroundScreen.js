@@ -14,7 +14,7 @@ const _BackgroundScreen = styled.ImageBackground`
 export function BackgroundScreen({children}) {
 	const theme = useTheme()
 	return(
-		<_BackgroundScreen source={theme.light? require('../../../assets/svg/native/background.png'): require('../../../assets/svg/native/background_dark.png')}>
+		<_BackgroundScreen source={theme.light? require('~/assets/svg/native/background.png'): require('~/assets/svg/native/background_dark.png')}>
 			{children}
 		</_BackgroundScreen>
 	)

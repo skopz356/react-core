@@ -38,7 +38,9 @@ export default function App({children}) {
 			<PersistGate loading={<AppLoadingScreen/>} persistor={persistor} onBeforeLift={global.config.welcomeScreenLogic? beforeLift: () => {}}>
 				<ThemeProvider>
 					<NavigationContainer>
-						<Stack.Navigator headerMode={null}>
+						<Stack.Navigator screenOptions={{
+							headerShown: global.config.navigationTopHeader.visible
+						}}>
 							{!showWelcomeScreen &&
 							<Stack.Screen name={WelcomeScreen._name} component={WelcomeScreen}/>
 							}

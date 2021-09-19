@@ -7,12 +7,12 @@ import React, {useState} from 'react'
 import styled from 'styled-components/native'
 
 const ThemeSwitcherContainer = styled.View`
-	justify-content: space-between;
+  justify-content: space-between;
 `
 
 export default function ThemeSwitcher() {
 	const {t} = useTranslation()
-	const theme = useSelector(state => state.theme)
+	const theme = useSelector(state => state.core.theme)
 	const [isEnabled, setIsEnabled] = useState(theme === 'dark')
 	const dispatch = useDispatch()
 
