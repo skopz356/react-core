@@ -1,6 +1,7 @@
 import * as Localization from 'expo-localization'
 import {initReactI18next} from 'react-i18next'
 import i18n from 'i18next'
+import translations from '~/translations'
 
 // creating a language detection plugin using expo
 // http://i18next.com/docs/ownplugin/#languagedetector
@@ -31,56 +32,11 @@ i18n
 		interpolation: {
 			escapeValue: false, // not needed for react as it does escape per default to prevent xss!
 		},
-		
-		
-		
+
+
+
 		keySeparator: false,
-		resources: {
-			'cs': {
-				translation: {
-					'Další': 'Další',
-					'Nastavení': 'Nastavení',
-					'Téma': 'Téma',
-					'Vylosovat aktivitu': 'Vylosovat aktivitu',
-					'Vítejte': 'Vítejte',
-					'Všechny': 'Všechny',
-					'Zpět': 'Zpět'
-				}
-			},
-			'en': {
-				translation: {
-					'Další': 'Next',
-					'Nastavení': 'Settings',
-					'Téma': 'Theme',
-					'Vylosovat aktivitu': 'To lottery',
-					'Vítejte': 'Welcome',
-					'Všechny': 'Check all!',
-					'Zpět': 'Back'
-				}
-			},
-			'en-GB': {
-				translation: {
-					'Další': 'Next',
-					'Nastavení': 'Settings',
-					'Téma': 'Theme',
-					'Vylosovat aktivitu': 'To lottery',
-					'Vítejte': 'Welcome',
-					'Všechny': 'Check all!',
-					'Zpět': 'Back'
-				}
-			},
-			'en-US': {
-				translation: {
-					'Další': 'Next',
-					'Nastavení': 'Settings',
-					'Téma': 'Theme',
-					'Vylosovat aktivitu': 'To lottery',
-					'Vítejte': 'Welcome',
-					'Všechny': 'Check all!',
-					'Zpět': 'Back'
-				}
-			}
-		},
+		resources: translations
 	})
 
 export default i18n
