@@ -15,6 +15,9 @@ export function BackgroundScreen({children}) {
 	const theme = useTheme()
 	return(
 		<_BackgroundScreen source={theme.light? require('~/assets/svg/native/background.png'): require('~/assets/svg/native/background_dark.png')}>
+			{global.config.components.Screen.componentOnEveryScreen &&
+				React.createElement(global.config.components.Screen.componentOnEveryScreen)
+			}
 			{children}
 		</_BackgroundScreen>
 	)

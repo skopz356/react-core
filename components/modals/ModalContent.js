@@ -1,23 +1,20 @@
+import {basicMixin} from '../abstract/styled/mixins'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled, {css} from 'styled-components/native'
+import styled from 'styled-components/native'
 
 const ModalContentContainer = styled.View`
+  	position: relative;
 	padding: ${props => props.containerPadding? props.containerPadding: '22px'};
-  	justify-content: ${props => props.justify ? props.justify : 'center'};
-  	align-items: ${props => props.align ? props.align : 'center'};;
   	border-radius: 12px;
   	border-color: rgba(0, 0, 0, 0.1);
-	${props => props.bgColor &&
-		css`
-			background-color: ${props.bgColor};
-		`
+  	${basicMixin}
 }
 `
 
-export default function ModalContent({children, justify, align, containerPadding, bgColor}) {
+export default function ModalContent({children, containerPadding, ...rest}) {
 	return (
-		<ModalContentContainer containerPadding={containerPadding} justify={justify} align={align} bgColor={bgColor}>
+		<ModalContentContainer containerPadding={containerPadding} {...rest}>
 			{children}
 		</ModalContentContainer>
 	)

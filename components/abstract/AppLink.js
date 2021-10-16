@@ -14,7 +14,7 @@ export default function AppLink({where, title, analytics, params={}}){
 		}
 	}
 	return (
-		<AppButton secondary
+		<AppButton secondary={!global.config.components.AppLink.primary}
 			title={title}
 			onPress={() => handleButtonPress()}
 		/>

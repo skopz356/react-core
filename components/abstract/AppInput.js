@@ -1,32 +1,40 @@
-import {useTheme} from 'styled-components/native'
+import {ifValue} from '../../utils'
 import PropTypes from 'prop-types'
 import React from 'react'
+import styled from 'styled-components/native'
 
-import {TextInput} from 'react-native'
 
-const AppInput = React.forwardRef((props, ref) => {
-	const theme = useTheme()
+const _AppInput = styled.TextInput.attrs(props => ({
+	placeholderTextColor: ifValue(props.theme.components.AppInput.placeholderTextColor, ifValue(props.theme.components.AppInput.color, props.theme.textColor))
+}))`
+	color: ${props => ifValue(props.color, ifValue(props.theme.components.AppInput.color, props.theme.textColor))}
+  	
+`
+
+const AppInput = React.forwardRef(({color, onChangeText, onFocus, value, placeholder, clearButtonMode, secureTextEntry}, ref) => {
 
 	return (
-		<TextInput
-			style={{color: theme.textColor, fontSize: 25, textAlign: 'center'}}
+		<_AppInput
+			color={color}
 			ref={ref}
-			onChangeText={props.onChangeText}
-			onBlur={props.onFocus}
-			value={props.value}
-			placeholder={props.placeholder}
-			placeholderTextColor={theme.textColor}
-			clearButtonMode={props.clearButtonMode}
+			onChangeText={onChangeText}
+			onBlur={onFocus}
+			value={value}
+			placeholder={placeholder}
+			clearButtonMode={clearButtonMode}
+			secureTextEntry={secureTextEntry}
 		/>
 	)
 })
 
 AppInput.propTypes = {
 	clearButtonMode: PropTypes.string,
+	color: PropTypes.string,
 	forwardedRef: PropTypes.any,
 	onChangeText: PropTypes.func,
 	onFocus: PropTypes.func,
 	placeholder: PropTypes.string,
+	secureTextEntry: PropTypes.bool,
 	value: PropTypes.any,
 }
 

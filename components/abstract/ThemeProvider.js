@@ -1,9 +1,9 @@
 import {ThemeProvider as _ThemeProvider} from 'styled-components/native'
 import {connect} from 'react-redux'
 import {darkTheme, lightTheme} from './theme'
+import {useOrientation} from '~/core/utils'
 import PropTypes from 'prop-types'
 import React from 'react'
-import {useOrientation} from '~/core/utils'
 
 function ThemeProvider({theme, children}) {
 	const orientation = useOrientation()
