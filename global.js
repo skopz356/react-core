@@ -1,14 +1,32 @@
 import config from '~/global'
+const merge = require('lodash.merge')
 
-global.config = {
-	...
-		{
-			analytics: false, // Whether should be used firebase analytics
-			mainFont: 'Arial', // Main font family used in AppText component
-			welcomeScreenLogic: true, // Whether should be used logic with WelcomeScreen etc.
-			navigationTopHeader: {
-				visible: false
+
+global.config = merge(
+	{analytics: false,
+		components: {
+			AppLink: {
+				primary: false,
+			},
+			LoginScreen: {
+				showGoogleWidget: false,
+			},
+			Screen: {
+				// Component to display on every screen
+				componentOnEveryScreen: false
 			}
 		},
-	...config
-}
+
+		firebase: null,
+
+		// Whether should be used firebase analytics
+		mainFont: 'Arial',
+
+		// Whether should be used logic with WelcomeScreen etc.
+		navigationTopHeader: {
+			visible: false
+		},
+		// Main font family used in AppText component
+		welcomeScreenLogic: true,
+
+	}, config)
