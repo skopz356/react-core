@@ -43,8 +43,8 @@ export default function App({children}) {
 	return (
 		<Provider store={store}>
 			<ConditionalWrap condition={global.config.firebase} wrap={children => <firebaseSetup.FirebaseReduxProvider store={store}>{children}</firebaseSetup.FirebaseReduxProvider>}>
-				<PersistGate loading={<AppLoadingScreen/>} persistor={persistor} onBeforeLift={global.config.welcomeScreenLogic? beforeLift: () => {}}>
-					<ThemeProvider>
+				<ThemeProvider>
+					<PersistGate loading={<AppLoadingScreen/>} persistor={persistor} onBeforeLift={global.config.welcomeScreenLogic? beforeLift: () => {}}>
 						<NavigationContainer>
 							<Stack.Navigator screenOptions={{
 								headerShown: global.config.navigationTopHeader.visible
@@ -59,8 +59,8 @@ export default function App({children}) {
 							{children}
 						</NavigationContainer>
 						<StatusBar style="auto"/>
-					</ThemeProvider>
-				</PersistGate>
+					</PersistGate>
+				</ThemeProvider>
 			</ConditionalWrap>
 		</Provider>
 	)
