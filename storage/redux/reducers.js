@@ -1,5 +1,8 @@
 import {SET_SHOW_WELCOME_SCREEN, SET_THEME} from './types'
 import { combineReducers } from 'redux'
+import {
+	firebaseReducer
+} from 'react-redux-firebase'
 import appReducer from '~/storage/redux/reducers'
 
 const initialState = {
@@ -32,4 +35,8 @@ function coreReducer(state = initialState, action) {
 	}
 }
 
-export default combineReducers({app: appReducer, core: coreReducer})
+export default combineReducers({
+	app: appReducer,
+	core: coreReducer,
+	...(global.config.firebase && {firebase: firebaseReducer})
+})

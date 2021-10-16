@@ -70,3 +70,9 @@ export function adjustFont (size) {
 		return size * 1.4
 	} return size
 }
+
+export const ConditionalWrap = ({condition, wrap, children}) => condition ? wrap(children) : children
+
+export const ifValue = (value, _default) => {
+	return value ? value : _default
+}

@@ -5,6 +5,7 @@ import migrations from '~/migrations'
 import reducer from './reducers'
 
 const persistConfig = {
+	blacklist: ['firebase'],
 	key: global.config.appName,
 	migrate: createMigrate(migrations, {debug: global.config.debug}),
 	storage: AsyncStorage,
