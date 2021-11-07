@@ -32,10 +32,11 @@ i18n
 		interpolation: {
 			escapeValue: false, // not needed for react as it does escape per default to prevent xss!
 		},
-
-
-
 		keySeparator: false,
+
+		react: {
+			useSuspense: false,
+		},
 		resources: translations
 	})
 

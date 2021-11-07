@@ -24,7 +24,7 @@ export default function AppButton({onPress, onLongPress, title, children, margin
 			{withStyles
 				? <ButtonContainer onPress={onPress} onLongPress={onLongPress} marginX={marginX} marginY={marginY} secondary={!!secondary} width={width} bgColor={bgColor} padding={padding}>
 					{title &&
-						<AppText h4 color={color? color : secondary ? theme.components.AppButton.buttonSecondaryColor : theme.buttonColor} fontSize={fontSize}>{title}</AppText>
+						<AppText h4 color={color? color : secondary ? theme.components.AppButton.buttonSecondaryColor : theme.components.AppButton.buttonColor} fontSize={fontSize}>{title}</AppText>
 					}
 					{children}
 				</ButtonContainer>

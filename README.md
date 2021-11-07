@@ -3,6 +3,7 @@
 ## Our Standards of code
 
 * every core component should have style attribute, so can be reused with styled-components
+* if the components is used in other component, function such as handleButtonPress should be configurable from config
 
 ## Changelog
 

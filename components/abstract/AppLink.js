@@ -4,7 +4,7 @@ import AppButton from './AppButton'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export default function AppLink({where, title, analytics, params={}}){
+export default function AppLink({where, title, analytics, basic, params={}}){
 	const navigation = useNavigation()
 	const route = useRoute()
 	const handleButtonPress = () => {
@@ -15,15 +15,15 @@ export default function AppLink({where, title, analytics, params={}}){
 	}
 	return (
 		<AppButton secondary={!global.config.components.AppLink.primary}
-			title={title}
-			onPress={() => handleButtonPress()}
-		/>
+			title={title} withStyles={!basic}
+			onPress={() => handleButtonPress()}/>
 	)
 }
 
 AppLink.propTypes = {
 	analytics: PropTypes.any,
+	basic: PropTypes.bool,
 	params: PropTypes.object,
 	title: PropTypes.string,
-	where: PropTypes.string,
+	where: PropTypes.string.isRequired
 }

@@ -1,13 +1,14 @@
-import { ActivityIndicator, View } from 'react-native'
-import React from 'react'
 import {useTheme} from 'styled-components/native'
+import ActivityIndicator from '@engine/abstract/AppLoadingScreen/ActivityIndicator'
+import React from 'react'
+import Screen from '../styled/Screen'
 
 export default function AppLoadingScreen() {
 	const theme = useTheme()
 
 	return (
-		<View style={{flex: 1, justifyContent: 'center'}}>
+		<Screen>
 			<ActivityIndicator size={theme.components.AppLoadingScreen.size} color={theme.components.AppLoadingScreen.color} />
-		</View>
+		</Screen>
 	)
 }
