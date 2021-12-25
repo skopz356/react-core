@@ -51,7 +51,7 @@ export default function App({children}) {
 								<Stack.Navigator screenOptions={{
 									headerShown: global.config.navigationTopHeader.visible
 								}}>
-									{!showWelcomeScreen &&
+									{showWelcomeScreen &&
 							<Stack.Screen name={WelcomeScreen._name} component={WelcomeScreen}/>
 									}
 									{screens.map(screen => {

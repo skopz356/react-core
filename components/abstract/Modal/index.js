@@ -4,12 +4,12 @@ import NativeModal from 'react-native-modal'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export function Modal({isVisible, setIsVisible, showCloseButton, CloseButton=ModalCloseButton, children, ...rest}) {
+export default function Modal({isVisible, setIsVisible, showCloseButton, CloseButton=ModalCloseButton, children, ...rest}) {
 	return (
 		<NativeModal isVisible={isVisible}>
 			<ModalContent {...rest}>
 				{(setIsVisible && showCloseButton) &&
-					<CloseButton visible={isVisible} setIsVisible={setIsVisible}/>
+					<CloseButton isVisible={isVisible} setIsVisible={setIsVisible}/>
 				}
 				{children}
 			</ModalContent>

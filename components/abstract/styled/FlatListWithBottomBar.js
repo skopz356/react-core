@@ -15,8 +15,10 @@ const BottomBar = styled.View`
 export default function FlatListWithBottomBar(props) {
 	return (
 		<>
-			<FlatList {...props} contentContainerStyle={{alignItems: 'center', paddingTop: 50}}>
-				{props.children}
+			<FlatList {...props} contentContainerStyle={{alignItems: 'center', paddingTop: 50, position: 'relative'}}>
+				{global.config.components.Screen.componentOnEveryScreen &&
+					React.createElement(global.config.components.Screen.componentOnEveryScreen)
+				}
 			</FlatList>
 			<BottomBar>
 				{props.barContent}

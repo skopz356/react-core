@@ -39,6 +39,7 @@ AppText.propTypes = {
 	bold: PropTypes.bool,
 	children: PropTypes.node,
 	color: PropTypes.string,
+	fontFamily: PropTypes.string,
 	fontSize: PropTypes.number,
 	h0: PropTypes.bool,
 	h1: PropTypes.bool,
