@@ -26,12 +26,17 @@ const Stack = createNativeStackNavigator()
 
 export default function App({children}) {
 	const [showWelcomeScreen, setShowWelcomeScreen] = useState(true)
+	let [fontsLoaded] = useFonts(global.config.fonts ? global.config.fonts: null)
 
 	if (global.config.fonts){
-		// eslint-disable-next-line react-hooks/rules-of-hooks
-		let [fontsLoaded] = useFonts(global.config.fonts)
 		if (!fontsLoaded) {
-			return <AppLoadingScreen/>
+			return (
+				<Provider store={store}>
+					<ThemeProvider>
+						<AppLoadingScreen/>
+					</ThemeProvider>
+				</Provider>
+			)
 		}
 	}
 
@@ -40,6 +45,8 @@ export default function App({children}) {
 			setShowWelcomeScreen(false)
 		}
 	}
+
+	console.log(global.config)
 
 	return (
 		<Provider store={store}>

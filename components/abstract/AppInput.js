@@ -1,5 +1,4 @@
 import {Input} from 'react-native-elements'
-import { OutlinedTextField } from 'rn-material-ui-textfield'
 import {Platform} from 'react-native'
 import {ifValue} from '../../utils'
 import PropTypes from 'prop-types'
@@ -11,7 +10,9 @@ const AppInputContainer = styled.View`
 	padding: ${props => ifValue(props.padding, props.theme.components.AppInput.padding)};
 `
 
-const _AppInput = styled(Platform.OS !== 'web' ? OutlinedTextField: Input).attrs(props => ({
+const _AppInput = styled(
+	Input
+).attrs(props => ({
 	placeholderTextColor: ifValue(props.theme.components.AppInput.placeholderTextColor, ifValue(props.theme.components.AppInput.color, props.theme.textColor)),
 	tintColor: ifValue(props.outlineColor, props.theme.components.AppInput.outlineColor)
 }))`

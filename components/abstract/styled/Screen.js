@@ -1,11 +1,10 @@
-import { SafeAreaView } from 'react-native-safe-area-context'
 import {basicMixin} from './mixins'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/native'
 
 
-const ScreenContainer = styled(SafeAreaView)`
+const ScreenContainer = styled.View`
   flex: 1;
   background-color: ${props => props.theme.bgColor};
   color: ${props => props.theme.textColor};
@@ -13,10 +12,10 @@ const ScreenContainer = styled(SafeAreaView)`
   ${basicMixin}
 `
 
-export default function Screen({children, ...rest}) {
+export default function Screen({children, base, ...rest}) {
 	return (
 		<ScreenContainer {...rest}>
-			{global.config.components.Screen.componentOnEveryScreen &&
+			{(global.config.components.Screen.componentOnEveryScreen && !base) &&
 				React.createElement(global.config.components.Screen.componentOnEveryScreen)
 			}
 			{children}
@@ -25,5 +24,6 @@ export default function Screen({children, ...rest}) {
 }
 
 Screen.propTypes = {
-	children: PropTypes.node,
+	base: PropTypes.bool,
+	children: PropTypes.node
 }

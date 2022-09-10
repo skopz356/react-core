@@ -1,16 +1,16 @@
-import * as Analytics from 'expo-firebase-analytics'
-import {useNavigation, useRoute} from '@react-navigation/native'
+import {useNavigation} from '@react-navigation/native'
 import AppButton from './AppButton'
 import PropTypes from 'prop-types'
 import React from 'react'
 
 export default function AppLink({where, title, analytics, basic, params={}}){
 	const navigation = useNavigation()
-	const route = useRoute()
 	const handleButtonPress = () => {
 		navigation.navigate(where, params)
 		if(analytics) {
-			Analytics.logEvent(analytics.title, { screen: route.name, ...analytics.data})
+			import('expo-firebase-analytics').then(() => {
+				/*Analytics.logEvent(analytics.title, { screen: route.name, ...analytics.data})*/
+			})
 		}
 	}
 	return (

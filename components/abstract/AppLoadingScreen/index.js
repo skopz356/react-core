@@ -7,7 +7,7 @@ export default function AppLoadingScreen() {
 	const theme = useTheme()
 
 	return (
-		<Screen>
+		<Screen base={true}>
 			<ActivityIndicator size={theme.components.AppLoadingScreen.size} color={theme.components.AppLoadingScreen.color} />
 		</Screen>
 	)
