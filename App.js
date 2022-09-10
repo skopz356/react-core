@@ -54,7 +54,7 @@ export default function App({children}) {
 				<ConditionalWrap condition={global.config.firebase} wrap={children => <firebaseSetup.FirebaseReduxProvider store={store}>{children}</firebaseSetup.FirebaseReduxProvider>}>
 					<ThemeProvider>
 						<PersistGate loading={<AppLoadingScreen/>} persistor={persistor} onBeforeLift={global.config.welcomeScreenLogic? beforeLift: () => {}}>
-							<NavigationContainer>
+							<NavigationContainer linking={{config: global.config.screensConfig}}>
 								<Stack.Navigator screenOptions={{
 									headerShown: global.config.navigationTopHeader.visible
 								}}>
